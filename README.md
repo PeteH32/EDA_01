@@ -52,6 +52,8 @@ docker compose up -d
 
 Compile and run the test suite with:
 
+NOTE: Currently there are not tests in any of the modules.
+
 ```sh
 ./gradlew test
 ```
