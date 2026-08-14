@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: api-service
+  cloud:
+    stream:
+      bindings:
+        productView-out-0:
+          destination: product_view
+          producer:
+            useNativeEncoding: false
+        cartAction-out-0:
+          destination: cart_action
+          producer:
+            useNativeEncoding: false
+      kafka:
+        binder:
+          brokers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+server:
+  port: ${SERVER_PORT:8080}

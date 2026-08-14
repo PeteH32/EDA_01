@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: subscriber-service
+  cloud:
+    function:
+      definition: productProductViews;productCartActions;userProductViews;userCartActions
+    stream:
+      bindings:
+        productProductViews-in-0:
+          destination: product_view
+          group: product-service
+        productCartActions-in-0:
+          destination: cart_action
+          group: product-service
+        userProductViews-in-0:
+          destination: product_view
+          group: user-service
+        userCartActions-in-0:
+          destination: cart_action
+          group: user-service
+      kafka:
+        binder:
+          brokers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
